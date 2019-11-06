@@ -1,17 +1,20 @@
 import React from 'react';
-import MenuBar from './MenuBar';
-import AddBtn from './AddBtn';
-import Main from './Main';
+import MenuBar from './MenuBar'
+import AddBtn from './AddBtn'
 import css from '../styles/layout.module.css'
 
-const Layout = () => {
-    return (
-        <div className={css.Gloabl}>
-            <MenuBar />
-            <Main />
-            <AddBtn />
-        </div>
-    );
-};
+
+
+function Layout(props) {
+
+        return (
+            <div className={css.Content_wrap}>
+                <MenuBar />
+                {props.content}
+                <AddBtn handleClick={props.addBtn}/>
+            </div>
+            )
+    }
+
 
 export default Layout;
