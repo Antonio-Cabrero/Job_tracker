@@ -1,0 +1,30 @@
+.AddBtn{
+    position: fixed;
+    bottom: 12%;
+    left: 44%;
+    width: 64px;
+    
+    height: 64px;
+    color: #498DDD;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 0.2px solid #ADADAD;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.1);
+    transition: rotate .5s ease;
+  }
+
+    .AddBtn:hover{
+      color: #fff;
+      background: #498DDD;
+    }
+
+    .AddBtn:active {}
+    .AddBtn:focus {}
+
+.AddBtnSvg {
+  border-radius: 50%;
+  fill: #498DDD;
+}
+.AddBtnSvg:hover {
+  fill: #fff;
+}

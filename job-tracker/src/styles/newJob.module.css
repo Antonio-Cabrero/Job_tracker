@@ -1,0 +1,60 @@
+.NewJob {
+    display: block;
+    padding: 25px 35px;
+    height: fit-content;
+    margin-top: 5%;
+    width: 80vw;
+    background: #FFFFFF;
+    border: 0.2px solid #ADADAD;
+    box-sizing: border-box;
+    /* SmoothShadow */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 11px;
+  }
+
+.FormInput {
+    display: block;
+    margin: 35px 0;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1.2px solid #498DDD;
+    transition: all .3s ease;
+  }
+  
+  .FormInput:focus {
+    outline: none;
+    border-bottom: 3.2px solid #498DDD; 
+  }
+  
+  .FormInput::placeholder {
+    font-size: 18px;
+    color: #8a8a8a;
+    letter-spacing: 1.2px;
+  }
+  
+  .BtnWrap {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    justify-content: space-around;
+    height: 40px;
+  }
+  
+  .FormBtn,
+  .FormBtn_Cancel {
+    width: 100px;
+    padding: 12px 0;
+    border: none;
+    margin: 0 10px;
+    color: #fff;
+    background: #498DDD;
+    /* SmoothShadow */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+  }
+  
+  .FormBtn_Cancel {
+    color: #7E7E7E;
+    background: #EAEAEA;
+  }

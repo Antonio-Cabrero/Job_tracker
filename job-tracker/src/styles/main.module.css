@@ -1,0 +1,15 @@
+.Main {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.NoTracking {
+    width: 60%;
+    margin-top: 30%;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 0.045em;
+    color: #A3A3A3;
+  }
