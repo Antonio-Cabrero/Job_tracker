@@ -5,7 +5,7 @@ import JobCard from './JobCard';
 
 function JobCards(props)  {
  
-    const jobCards = props.jobCards.map((item, index) =>
+    const jobCards = props.data.map((item, index) =>
             <JobCard 
                 key={index}
                 position={item.position}

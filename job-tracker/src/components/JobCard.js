@@ -7,7 +7,6 @@ function JobCard(props) {
             <h4 className={css.JobCard_title}>{props.position}</h4>
             <span className={css.JobCard_subTitle}>{props.company}</span>
             <div className={css.JobCard_info}>
-                
                 <span>{props.jobBoard}</span>
                 <span>{props.dateApplied}</span>
             </div>

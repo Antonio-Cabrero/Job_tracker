@@ -3,7 +3,7 @@ import jobsData from '../JobsData'
 import css from '../styles/form.module.css'
 
 
-function NewJobCard() {
+function NewJobCard(props) {
 
     const [position, setPosition] = useState('')
     const [company, setCompany] = useState('')
@@ -20,9 +20,8 @@ function NewJobCard() {
     }
 
     function handleSave(e) {
-        e.preventDefault()
         jobsData.push({
-            postion: position,
+            position: position,
             company: company,
             dateApplied: date,
             jobBoard: jobBoard
@@ -39,12 +38,11 @@ function NewJobCard() {
     }
 
     
-    
-        return (
+return (
         <div className={css.Content_wrap}>
             <div className={css.JobCard}>
                 <h3 className={css.FormTitle}>New Tracking</h3>
-                <form>
+                <form onSubmit={props.handleCards}>
                     <input 
                         name="position"
                         value={position}
@@ -79,7 +77,7 @@ function NewJobCard() {
                         />
                     <div className={css.BtnWrap}>
                         <button onClick={handleSave} className={css.FormBtn}>Save</button>
-                        <button onClick={handleSave} className={css.FormBtn_Cancel}>Cancel</button>
+                        <button onClick={props.cancelBtn} className={css.FormBtn_Cancel}>Cancel</button>
                     </div>
                 </form>
             </div>

@@ -1,81 +1,44 @@
-import React from 'react'
-import Layout from './components/Layout'
+import React, { useState } from 'react'
 import JobCards from './components/JobCards'
 import NewJobCard from './components/NewJobContainer'
 import Message from './components/NoContent'
 import jobData from './JobsData'
+import MenuBar from './components/MenuBar'
 
-class App extends React.Component {
 
-  constructor() {
-    super() 
-    this.state = {
-        content:'',
-        isAdding: true,
-        isEditing: false,
-        isEmpty: false,
-        data: jobData
-    }
+function App() {
 
-    this.handleAdding = this.handleAdding.bind(this)
-    this.handleCancel =this.handleCancel.bind(this)
+  const [data, setData] = useState(jobData.length)
+  const [content, setContent] = 
+      useState(jobData.length > 0? <JobCards data={jobData} addBtn={handleAdd}/>:
+                                   <Message addBtn={handleAdd}/>)
+
+  function handleAdd() {
+    setContent(<NewJobCard handleCards={handleCards} cancelBtn={handleCancel}/>)
+  }
+               
+  function handleCancel() {
+    setContent(jobData.length > 0? <JobCards data={jobData} addBtn={handleAdd}/>:
+      <Message addBtn={handleAdd}/>)
   }
 
-  handleAdding() {
-     this.setState(
-        {
-        content: <NewJobCard />,
-         isAdding: true
-       })
-  }
-
-  handleCancel(e){
-    e.preventDefault()
-    this.setState({
-      isAdding: false
-    })
-    this.handleContent()
-  }
-
-
- handleContent() {
-
-    if (this.state.isAdding) {
-      this.setState({
-         content: <NewJobCard />
-       })
-    } 
-    else if (this.state.isEmpty) {
-      this.setState({
-        content: <Message addBtn={this.handleAdding}/>
-    })
-    } else {
-      this.setState({
-        content: <JobCards jobCards={this.state.data} addBtn={this.handleAdding}/>
-      })
+  function handleCards(){
+    if(data < jobData.length) {
+      setData(jobData.length)
+      setContent( <JobCards data={jobData} addBtn={handleAdd}/>)
     }
   }
 
-  componentDidMount() {
-    if (this.state.data.length >= 1){
-      this.setState({
-        isEmpty: false
-      })
-    }
-    this.handleContent()
-  }
-
-  // componentDidUpdate() {
-  //   this.handleContent()
-  // }
-
-  render() { 
+  console.log(data)
+      console.log(jobData.length)
       return (
+        
         <div>
-            <Layout content={this.state.content}  addBtn={this.handleAdding}/>
+            <MenuBar />
+            {content}
         </div>
       );
-  }    
+     
 }
 
 export default App;
