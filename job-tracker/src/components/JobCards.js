@@ -1,17 +1,11 @@
 import React from 'react';
 import css from '../styles/jobCards.module.css'
-import jobsData from '../JobsData'
+import AddBtn from './AddBtn'
 import JobCard from './JobCard';
 
-class JobCards extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      jobCards: jobsData
-    }
-  }
-  render() {
-    const jobCards = this.state.jobCards.map((item, index) =>
+function JobCards(props)  {
+ 
+    const jobCards = props.jobCards.map((item, index) =>
             <JobCard 
                 key={index}
                 position={item.position}
@@ -25,9 +19,10 @@ class JobCards extends React.Component {
       return (
         <div className={css.JobCards_Wrap}>
           {jobCards}
+          <AddBtn handleClick={props.addBtn}/>
         </div>
       )
   }
-}
+
 
 export default JobCards;

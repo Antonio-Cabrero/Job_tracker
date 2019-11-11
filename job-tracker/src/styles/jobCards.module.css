@@ -5,9 +5,10 @@
 }
 
 .NoTracking {
-    width: 60%;
+    width: 50%;
+    margin: 0 auto;
     margin-top: 30%;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 22px;
     text-align: center;
     letter-spacing: 0.045em;
