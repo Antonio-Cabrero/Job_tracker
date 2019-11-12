@@ -1,30 +1,85 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
+import jobsData from '../JobsData'
 import css from '../styles/form.module.css'
-import PropTypes from 'prop-types';
 
-class EditJobCard extends Component {
-    render() {
-        return (
-            <div>
-                <h3 className={css.FormTitle}>Job Position</h3>
-            <span>Company</span>
-            {/* <form>
-                <div className={css.BtnWrap}>
-                    <span>Date</span><button className={css.FormBtn}>Change</button>
-                </div>
-                
-                <span>Optional</span>
+function EditJobCard(props) {
 
-                <input className={css.FormInput} type="text" placeholder="Job Board"/>
-                <div className={css.BtnWrap}>
-                    <button className={css.FormBtn}>Save</button>
-                    <button className={css.FormBtn_Cancel}>Cancel</button>
-                </div>
-            </form> */}
-            </div>
-        );
+    const [position, setPosition] = useState(props.data.position)
+    const [company, setCompany] = useState(props.data.company)
+    const [date, setDate] = useState(props.data.dateApplied)
+    const [jobBoard, setJobBoard] = useState(props.data.jobBoard)
+    
+    function handleChange(e) {
+        switch(e.target.name) {
+            case 'position': return setPosition(e.target.value)
+            case 'company': return setCompany(e.target.value)
+            case 'jobBoard': return setJobBoard(e.target.value)
+            case 'date': return setDate(e.target.value)
+            
+            default: return 
+        }
     }
+
+    function handleSave(e) {
+        props.data.position = position
+        props.data.company = company
+        props.data.dateApplied = date
+        props.data.jobBoard = jobBoard
+    }
+
+        return (
+                <div className={css.Content_wrap}>
+                    <div className={css.JobCard}>
+                        <h3 className={css.FormTitle}>Edit Tracking</h3>
+                        <form onSubmit={props.handleSubmit}>
+                            <input 
+                                name="position"
+                                value={position}
+                                onChange={handleChange} 
+                                className={css.FormInput} 
+                                type="text" 
+                            placeholder="Job Position"
+                            />
+                            <input 
+                                name="company"
+                                value={company}
+                                onChange={handleChange}
+                                className={css.FormInput} 
+                                type="text" 
+                            placeholder="Company Name"
+                            />
+
+                            <div className={css.BtnWrap}>
+                                <input 
+                                    name="date"
+                                    value={date}
+                                    onChange={handleChange}
+                                    className={css.FormInput} 
+                                    type="text" 
+                                placeholder="Date Applied"
+                                />
+                            </div>
+                            
+                            <span>Optional</span>
+
+                            <input 
+                                name="jobBoard"
+                                value={jobBoard}
+                                onChange={handleChange}
+                                className={css.FormInput} 
+                                type="text"
+                                placeholder="Job Board"
+                                />
+                            <div className={css.BtnWrap}>
+                                <button onClick={handleSave} className={css.FormBtn}>Save</button>
+                                <button onClick={props.cancelBtn} className={css.FormBtn_Cancel}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        );
 }
+
 
 EditJobCard.propTypes = {
 

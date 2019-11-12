@@ -3,7 +3,7 @@ import css from '../styles/jobCard.module.css'
 
 function JobCard(props) {
     return (
-        <div className={css.JobCard}>
+        <div onClick={props.handleClick} className={css.JobCard} title={props.position}>
             <h4 className={css.JobCard_title}>{props.position}</h4>
             <span className={css.JobCard_subTitle}>{props.company}</span>
             <div className={css.JobCard_info}>

@@ -24,7 +24,9 @@ function NewJobCard(props) {
             position: position,
             company: company,
             dateApplied: date,
-            jobBoard: jobBoard
+            jobBoard: jobBoard,
+            hasFollowedUp: false,
+            hadInterview: false,
         })
     }
 
@@ -42,7 +44,7 @@ return (
         <div className={css.Content_wrap}>
             <div className={css.JobCard}>
                 <h3 className={css.FormTitle}>New Tracking</h3>
-                <form onSubmit={props.handleCards}>
+                <form onSubmit={props.handleSubmit}>
                     <input 
                         name="position"
                         value={position}

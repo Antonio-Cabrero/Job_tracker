@@ -14,6 +14,7 @@ function JobCards(props)  {
                 jobBoard={item.jobBoard}
                 hasFollowedUp={item.hasFollowedUp}
                 hadInterview={item.hadInterview}
+                handleClick={props.handleClick}
           />)
 
       return (
