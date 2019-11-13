@@ -10,6 +10,8 @@
   
   .FormInput {
       display: block;
+      font-family: inherit;
+      font-size: 1.1em;
       margin: 35px 0;
       width: 100%;
       height: 40px;
@@ -24,7 +26,7 @@
     }
     
     .FormInput::placeholder {
-      font-size: 18px;
+      font-size: 1.1em;
       color: #8a8a8a;
       letter-spacing: 1.2px;
     }
@@ -44,18 +46,57 @@
       padding: 12px 0;
       border: none;
       margin: 0 10px;
-      color: #fff;
-      background: #498DDD;
+      
+      color: #498ddd;
+      background: #fff;
       /* SmoothShadow */
       box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.1);
       border-radius: 16px;
+    }
+
+    .FormBtn:hover,
+    .FormBtn:active,
+    .FormBtn:focus {
+      color: #fff;
+      background: #498DDD;
+      /* border: 1px solid #498DDD; */
+      transition: background .3s ease;
+
     }
     
     .FormBtn_Cancel {
       color: #7E7E7E;
       background: #EAEAEA;
+      transition: background .3s ease;
     }
+      .FormBtn_Cancel:hover,
+      .FormBtn_Cancel:active,
+      .FormBtn_Cancel:focus        {
+        color: #fff;
+        background: rgb(221, 73, 73);
+      }
 
+      .FormBtn_delete {
+        display: block;
+        text-align: center;
+        width: 100px;
+        padding: 12px 0;
+        border: none;
+        margin: 0 auto;
+        color: rgb(221, 73, 73);
+        background: #fff;
+        /* SmoothShadow */
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.12), 0px 8px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        transition: background .3s ease;
+      }
+
+        .FormBtn_delete:hover,
+        .FormBtn_delete:active,
+        .FormBtn_delete:focus {
+          color: #fff;
+          background: rgb(221, 73, 73);
+        }
 
     .JobCard {
         display: block;

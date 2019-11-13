@@ -12,36 +12,41 @@ function App(props) {
   const [hasData, setHasData] = useState(jobData.length)
   const [showJobForm, setShowJobForm] = useState(false) 
   const [editJobForm, setEditJobForm] = useState(false)
-  const [editFormIndex, setEditFormIndex] = useState(0)
+  const [editCard, setEditCard] = useState('')
+  const [index, setIndex] = useState('')
  
 
   const onAdd = (count) => {
       setHasData(count)
       setShowJobForm(true)
   }
+
   const onCancel = () => showJobForm? setShowJobForm(false)
         : editJobForm? setEditJobForm(false) : null
 
 
-  const onEdit = (e) => {
-    const dataPosition = jobData
-    for (let i=0; i<dataPosition.length;i++){
-      if (dataPosition[i].position === e.target.parentNode.title) {
-        return setEditFormIndex(i)
-      }
-    }
+  const onEdit = (card) => {
+    setIndex(card)
+    setEditCard(jobData[card])
     setEditJobForm(true)
   }
+
+  const onDelete = () => {
+    jobData.pop(index)
+    setHasData(jobData.length)
+  }
+
   const onSubmit = () => showJobForm? setShowJobForm(false) 
-    : editJobForm? setEditJobForm(false) : null
+    : editJobForm
+        ? setEditJobForm(false) : null
 
 
-    const view = editJobForm? <EditJobCard data={jobData[editFormIndex]} handleSubmit={onSubmit} cancelBtn={onCancel}/>
-    : showJobForm
-        ? <NewJobCard handleSubmit={onSubmit} cancelBtn={onCancel} />
-        : hasData
-            ? <JobCards data={jobData} addBtn={onAdd} handleClick={onEdit}/>
-            : <Message addBtn={onAdd} />
+  const view = editJobForm? <EditJobCard data={editCard} index={index} handleSubmit={onSubmit} cancelBtn={onCancel} deleteBtn={onDelete}/>
+  : showJobForm
+      ? <NewJobCard handleSubmit={onSubmit} cancelBtn={onCancel} />
+      : hasData
+          ? <JobCards data={jobData} addBtn={onAdd} handleClick={onEdit}/>
+          : <Message addBtn={onAdd} />
 
   return (
       <div>

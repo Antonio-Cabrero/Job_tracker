@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import jobsData from '../JobsData'
 import css from '../styles/form.module.css'
 
 function EditJobCard(props) {
@@ -8,6 +7,8 @@ function EditJobCard(props) {
     const [company, setCompany] = useState(props.data.company)
     const [date, setDate] = useState(props.data.dateApplied)
     const [jobBoard, setJobBoard] = useState(props.data.jobBoard)
+    const [followUp , setFollowUp] = useState(props.data.hasFollowedUp)
+    const [hadInterview, setHadInterview] = useState(props.data.hadInterview)
     
     function handleChange(e) {
         switch(e.target.name) {
@@ -15,6 +16,8 @@ function EditJobCard(props) {
             case 'company': return setCompany(e.target.value)
             case 'jobBoard': return setJobBoard(e.target.value)
             case 'date': return setDate(e.target.value)
+            case 'followUp': return setFollowUp(e.target.checked)
+            case 'interviewed': return setHadInterview(e.target.checked)
             
             default: return 
         }
@@ -25,6 +28,8 @@ function EditJobCard(props) {
         props.data.company = company
         props.data.dateApplied = date
         props.data.jobBoard = jobBoard
+        props.data.hasFollowedUp = followUp
+        props.data.hadInterview = hadInterview
     }
 
         return (
@@ -56,12 +61,27 @@ function EditJobCard(props) {
                                     onChange={handleChange}
                                     className={css.FormInput} 
                                     type="text" 
-                                placeholder="Date Applied"
+                                placeholder="Date Applied(DD/MM/YYYY)"
                                 />
                             </div>
-                            
-                            <span>Optional</span>
-
+                            <div className={css.BtnWrap}>
+                                <label htmlFor="followUp">Follow Up</label>
+                                <input 
+                                    id="followUp" 
+                                    name="followUp" 
+                                    type="checkbox" 
+                                    checked={followUp}
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="interviewed">Interviewed</label>
+                                <input 
+                                    id="interviewed" 
+                                    name="interviewed" 
+                                    type="checkbox" 
+                                    checked={hadInterview}
+                                    onChange={handleChange}
+                                />
+                            </div>
                             <input 
                                 name="jobBoard"
                                 value={jobBoard}
@@ -72,8 +92,9 @@ function EditJobCard(props) {
                                 />
                             <div className={css.BtnWrap}>
                                 <button onClick={handleSave} className={css.FormBtn}>Save</button>
-                                <button onClick={props.cancelBtn} className={css.FormBtn_Cancel}>Cancel</button>
+                                <button type="button" onClick={props.cancelBtn} className={css.FormBtn_Cancel}>Cancel</button>
                             </div>
+                            <button onClick={props.deleteBtn} className={css.FormBtn_delete}>Delete</button>
                         </form>
                     </div>
                 </div>

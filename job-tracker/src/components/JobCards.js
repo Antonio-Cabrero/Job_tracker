@@ -8,6 +8,7 @@ function JobCards(props)  {
     const jobCards = props.data.map((item, index) =>
             <JobCard 
                 key={index}
+                item={index}
                 position={item.position}
                 company={item.company}
                 dateApplied={item.dateApplied}
@@ -15,7 +16,7 @@ function JobCards(props)  {
                 hasFollowedUp={item.hasFollowedUp}
                 hadInterview={item.hadInterview}
                 handleClick={props.handleClick}
-          />)
+            />)
 
       return (
         <div className={css.JobCards_Wrap}>
