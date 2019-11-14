@@ -1,7 +1,7 @@
 .AddBtn{
-    position: fixed;
-    bottom: 12%;
-    left: 44%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
     width: 64px;
     height: 64px;
     color: #498DDD;
@@ -14,19 +14,25 @@
                 0px 8px 8px rgba(0, 0, 0, 0.1);
  }
 
-    .AddBtn:hover{
+    .AddBtn:hover,
+    .AddBtn:active,
+    .AddBtn:focus {
       color: #fff;
       background: #498DDD;
     }
 
-    .AddBtn:active {}
-    .AddBtn:focus {}
+.AddBtn_wrap {
+  position: fixed;
+  display: flex;
+  width: 90%;
+  bottom: 12%;
+}
 
-.AddBtnSvg {
+.AddBtn_svg {
   border-radius: 50%;
   fill: #498DDD;
 }
 
-  .AddBtnSvg:hover {
+  .AddBtn_svg:hover {
     fill: #fff;
   }

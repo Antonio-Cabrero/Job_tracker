@@ -23,7 +23,7 @@
 
 
   .JobCard_title {
-    font-size: 1.2em;
+    font-size: 1em;
     text-align: left;
     grid-column: span 2;
     align-self: center;
@@ -35,6 +35,7 @@
 .JobCard_info,
 .JobCard_status {
     text-align: left;
+    font-size: .8em;
 }
 
   .JobCard_info{
@@ -42,7 +43,6 @@
  }
  .JobCard_info span {
      display: block;
-     font-size: .9em;
      margin: 1.2em 0;
  }
   

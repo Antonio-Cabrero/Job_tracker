@@ -4,6 +4,7 @@ import NewJobCard from './components/NewJobContainer'
 import Message from './components/NoContent'
 import jobData from './JobsData'
 import MenuBar from './components/MenuBar'
+import NavMenu from './components/NavMenu'
 import EditJobCard from './components/EditJobCard'
 
 
@@ -14,7 +15,7 @@ function App(props) {
   const [editJobForm, setEditJobForm] = useState(false)
   const [editCard, setEditCard] = useState('')
   const [index, setIndex] = useState('')
- 
+  const [displayMenu, setDisplayMenu] = useState(false)
 
   const onAdd = (count) => {
       setHasData(count)
@@ -40,8 +41,15 @@ function App(props) {
     : editJobForm
         ? setEditJobForm(false) : null
 
+  const onMenuDisplay = () => displayMenu? setDisplayMenu(false) : setDisplayMenu(true)
 
-  const view = editJobForm? <EditJobCard data={editCard} index={index} handleSubmit={onSubmit} cancelBtn={onCancel} deleteBtn={onDelete}/>
+  const view = editJobForm? <EditJobCard 
+                                data={editCard} 
+                                index={index} 
+                                handleSubmit={onSubmit} 
+                                cancelBtn={onCancel} 
+                                deleteBtn={onDelete}
+                            />
   : showJobForm
       ? <NewJobCard handleSubmit={onSubmit} cancelBtn={onCancel} />
       : hasData
@@ -50,7 +58,8 @@ function App(props) {
 
   return (
       <div>
-          <MenuBar />
+          <MenuBar menuBtn={onMenuDisplay} toggleIcon={displayMenu}/>
+          <NavMenu toggleDisplay={displayMenu}/>
           {view}
       </div>
   );
