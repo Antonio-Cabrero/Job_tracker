@@ -41,7 +41,7 @@ function EditJobCard(props) {
                                 name="position"
                                 value={position}
                                 onChange={handleChange} 
-                                className={css.FormInput} 
+                                className={css.FormInput_text} 
                                 type="text" 
                             placeholder="Job Position"
                             />
@@ -49,7 +49,7 @@ function EditJobCard(props) {
                                 name="company"
                                 value={company}
                                 onChange={handleChange}
-                                className={css.FormInput} 
+                                className={css.FormInput_text} 
                                 type="text" 
                             placeholder="Company Name"
                             />
@@ -59,7 +59,7 @@ function EditJobCard(props) {
                                     name="date"
                                     value={date}
                                     onChange={handleChange}
-                                    className={css.FormInput} 
+                                    className={css.FormInput_text} 
                                     type="text" 
                                 placeholder="Date Applied(DD/MM/YYYY)"
                                 />
@@ -72,6 +72,7 @@ function EditJobCard(props) {
                                     type="checkbox" 
                                     checked={followUp}
                                     onChange={handleChange}
+                                    className={css.FormInput_checkbox}
                                 />
                                 <label htmlFor="interviewed">Interviewed</label>
                                 <input 
@@ -80,13 +81,14 @@ function EditJobCard(props) {
                                     type="checkbox" 
                                     checked={hadInterview}
                                     onChange={handleChange}
+                                    className={css.FormInput_checkbox}
                                 />
                             </div>
                             <input 
                                 name="jobBoard"
                                 value={jobBoard}
                                 onChange={handleChange}
-                                className={css.FormInput} 
+                                className={css.FormInput_text} 
                                 type="text"
                                 placeholder="Job Board"
                                 />

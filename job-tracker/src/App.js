@@ -12,7 +12,7 @@ function App(props) {
 
   const [hasData, setHasData] = useState(jobData.length)
   const [showJobForm, setShowJobForm] = useState(false) 
-  const [editJobForm, setEditJobForm] = useState(false)
+  const [editJobForm, setEditJobForm] = useState(true)
   const [editCard, setEditCard] = useState('')
   const [index, setIndex] = useState('')
   const [displayMenu, setDisplayMenu] = useState(false)

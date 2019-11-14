@@ -49,7 +49,7 @@ return (
                         name="position"
                         value={position}
                         onChange={handleChange} 
-                        className={css.FormInput} 
+                        className={css.FormInput_text} 
                         type="text" 
                     placeholder="Job Position"
                     />
@@ -57,7 +57,7 @@ return (
                         name="company"
                         value={company}
                         onChange={handleChange}
-                        className={css.FormInput} 
+                        className={css.FormInput_text} 
                         type="text" 
                     placeholder="Company Name"
                     />
@@ -73,7 +73,7 @@ return (
                         name="jobBoard"
                         value={jobBoard}
                         onChange={handleChange}
-                        className={css.FormInput} 
+                        className={css.FormInput_text} 
                         type="text"
                         placeholder="Job Board"
                         />
